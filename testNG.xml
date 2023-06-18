@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="SauceDemo Login suite" parallel="false">
+    <test name="Test">
+        <listeners>
+            <listener class-name="extentReportListener.ExtentReporterNG"/>
+        </listeners>
+        <classes>
+            <class name="tests.wduTest"/>
+        </classes>
+    </test> <!-- Test -->
+</suite> <!-- Suite -->
