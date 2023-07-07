@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite name="SauceDemo Login suite" parallel="false">
-    <test name="Test">
+<suite name="Swag Labs Order suite" parallel="false">
+    <test thread-count="5" name="SwagLabsTest">
         <listeners>
             <listener class-name="extentReportListener.ExtentReporterNG"/>
         </listeners>
         <classes>
-            <class name="tests.wduTest"/>
+            <class name="tests.swagLabsTest"/>
         </classes>
     </test> <!-- Test -->
 </suite> <!-- Suite -->

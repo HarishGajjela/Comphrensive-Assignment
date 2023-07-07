@@ -3,6 +3,7 @@ package base;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -15,17 +16,19 @@ import java.time.Duration;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
-import static org.openqa.selenium.remote.ErrorCodes.TIMEOUT;
-
 public class BaseTestClass {
     public static WebDriver driver;
     public static Properties prop;
+
+    JavascriptExecutor jse = (JavascriptExecutor) driver;
 
     public void initBrowserAndNavigateToUrl() {
         loadProperties();
         String browserName = prop.getProperty("Browser");
         if (browserName.equalsIgnoreCase("Chrome")) {
-            driver = new ChromeDriver();
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("--enable-javascript");
+            driver = new ChromeDriver(options);
         } else if (browserName.equalsIgnoreCase("Edge")) {
             driver = new EdgeDriver();
         }
@@ -61,5 +64,9 @@ public class BaseTestClass {
     public void waitForElement(WebElement ele) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         wait.until(ExpectedConditions.visibilityOf(ele));
+    }
+
+    public void JSClick(WebElement ele) {
+        jse.executeScript("arguments[0].click();", ele);
     }
 }

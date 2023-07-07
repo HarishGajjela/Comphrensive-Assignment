@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Swag Labs Order suite]" verbose="0">
+  <listeners>
+    <listener class-name="extentReportListener.ExtentReporterNG"/>
+  </listeners>
+  <test thread-count="5" name="SwagLabsTest(failed)" verbose="0">
+    <classes>
+      <class name="tests.swagLabsTest">
+        <methods>
+          <include name="verifySauceDemo_ThankYouOrderTest" invocation-numbers="0"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+          <include name="getLoginCredentials"/>
+        </methods>
+      </class> <!-- tests.swagLabsTest -->
+    </classes>
+  </test> <!-- SwagLabsTest(failed) -->
+</suite> <!-- Failed suite [Swag Labs Order suite] -->
